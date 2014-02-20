@@ -1,0 +1,12 @@
+<book id="book-2">
+    <title>this is the second book</title>
+    <version>2.0</version>
+    <description>A short description about the second book. There is an extra sentence here.</description>
+    <aliases>
+        <alias scheme="5characterslong" identifier="10002"/>
+        <alias scheme="strangevalue" identifier="12345ABC"/>
+
+        <!-- note that this identifier conflicts with book-1 -->
+        <alias scheme="10characterslong" identifier="1000000001"/>
+    </aliases>
+</book>
