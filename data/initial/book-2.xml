@@ -3,7 +3,7 @@
     <version>1.0</version>
     <description>A short description about the second book</description>
     <aliases>
-        <alias scheme="5characterslong" identifier="10002"/>
-        <alias scheme="10characterslong" identifier="1000000002"/>
+        <alias scheme="ISBN-10" value="1000000002"/>
+        <alias scheme="ISBN-13" value="1000000000002"/>
     </aliases>
 </book>

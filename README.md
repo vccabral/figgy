@@ -75,7 +75,14 @@ Import the initial set of test data.
 $ python manage.py process_data_file data/initial/*.xml
 ````
 
-Importing the update data may be a little tricky. But you can also try it by running:
+## The Task
+
+You received an initial set of data with very loose specs and created a basic database to manage it with. The second round of updates blew away your assumptions about how the data was formed and you are now getting a better picture. Can you implement a solution to handle the xml updates?
+
+* Feel free to do any code modifications you feel that will accomplish your task. This includes adding additional modules, models, etc.
+* Please note that the update data potentially holds bad and conflicting values.
+
+
 
 ````
 $ python manage.py process_data_file data/update/*.xml

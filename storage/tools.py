@@ -2,7 +2,7 @@
 # Created by David Rideout <drideout@safaribooksonline.com> on 2/7/14 4:58 PM
 # Copyright (c) 2013 Safari Books Online, LLC. All rights reserved.
 
-from storage.models import Book, Identifier
+from storage.models import Book
 
 
 def process_book_element(book_element):
@@ -19,8 +19,8 @@ def process_book_element(book_element):
 
     for alias in book_element.xpath('aliases/alias'):
         scheme = alias.get('scheme')
-        value = alias.get('identifier')
+        value = alias.get('value')
 
-        book.identifiers.get_or_create(scheme=scheme, identifier=value)
+        book.aliases.get_or_create(scheme=scheme, value=value)
 
     book.save()

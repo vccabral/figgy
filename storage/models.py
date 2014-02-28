@@ -13,9 +13,13 @@ class BaseModel(models.Model):
 
 
 class Book(BaseModel):
-    identifier = models.CharField(max_length=200, primary_key=True)
-    title = models.CharField(max_length=128, help_text="The title of the entry", db_index=True, null=False, blank=False)
-    description = models.TextField(blank=True, null=True, default=None, help_text="Very short description, for list pages")
+    '''
+    Main storage for a Book object.
+    '''
+
+    id = models.CharField(max_length=30, primary_key=True, help_text="The primary identifier of this title, we get this value from publishers.")
+    title = models.CharField(max_length=128, help_text="The title of this book.", db_index=True, null=False, blank=False)
+    description = models.TextField(blank=True, null=True, default=None, help_text="Very short description of this book.")
 
     def __unicode__(self):
         return u"Book %s" % self.title
@@ -24,10 +28,17 @@ class Book(BaseModel):
         ordering = ['title']
 
 
-class Identifier(BaseModel):
-    book = models.ForeignKey(Book, related_name='identifiers')
-    identifier = models.CharField(max_length=255, db_index=True, unique=True)
-    scheme = models.CharField(max_length=40)
+class Alias(BaseModel):
+    '''
+    A book can have one or more aliases which
+
+    For example, a book can be referred to with an ISBN-10 (older, deprecated scheme), ISBN-13 (newer scheme),
+    or any number of other aliases.
+    '''
+
+    book = models.ForeignKey(Book, related_name='aliases')
+    value = models.CharField(max_length=255, db_index=True, unique=True, help_text="The value of this identifier")
+    scheme = models.CharField(max_length=40, help_text="The scheme of identifier")
 
     def __unicode__(self):
         return '%s identifier for %s' % (self.scheme, self.book.title)

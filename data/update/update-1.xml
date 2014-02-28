@@ -1,10 +1,11 @@
-<book id="10001">
+<book id="1000000000001">
     <title>this is the first book, second edition</title>
     <version>2.0</version>
     <description>The second edition of the first book. New and improved!</description>
     <aliases>
-        <alias scheme="5characterslong" identifier="10001"/>
-        <alias scheme="10characterslong" identifier="1000000001"/>
-        <alias scheme="strangevalue" identifier="12345ABC"/>
+        <alias scheme="ISBN-10" value="1000000001"/>
+        <alias scheme="ISBN-13" value="1000000000001"/>
+
+        <alias scheme="Proprietary" value="12345ABC"/>
     </aliases>
 </book>

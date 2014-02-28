@@ -4,7 +4,7 @@
 
 from django.test import TestCase
 from lxml import etree
-from storage.models import Book, Identifier
+from storage.models import Book, Alias
 import storage.tools
 
 
@@ -19,8 +19,8 @@ class TestTools(TestCase):
         <book id="12345">
             <title>A title</title>
             <aliases>
-                <alias scheme="isbn10" identifier="0158757819"/>
-                <alias scheme="proprietary" identifier="abcdefgh"/>
+                <alias scheme="ISBN-10" value="0158757819"/>
+                <alias scheme="ISBN-13" value="0000000000123"/>
             </aliases>
         </book>
         '''
@@ -32,7 +32,7 @@ class TestTools(TestCase):
         book = Book.objects.get(pk='12345')
 
         self.assertEqual(book.title, 'A title')
-        self.assertEqual(book.identifiers.count(), 2)
-        self.assertEqual(Identifier.objects.get(scheme='isbn10').identifier, '0158757819')
-        self.assertEqual(Identifier.objects.get(scheme='proprietary').identifier, 'abcdefgh')
+        self.assertEqual(book.aliases.count(), 2)
+        self.assertEqual(Alias.objects.get(scheme='ISBN-10').value, '0158757819')
+        self.assertEqual(Alias.objects.get(scheme='ISBN-13').value, '0000000000123')
 

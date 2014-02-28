@@ -1,25 +1,23 @@
 from django.contrib import admin
 
-from storage.models import Book, Identifier
+from storage.models import Book, Alias
 
 
-class InlineIdentifierAdmin(admin.StackedInline):
-    model = Identifier
+class InlineAliasAdmin(admin.StackedInline):
+    model = Alias
     extra = 0
 
 
 class BookAdmin(admin.ModelAdmin):
-    inlines = [InlineIdentifierAdmin]
+    inlines = [InlineAliasAdmin]
 
-    list_display = ['identifier', 'title', 'list_ids']
+    list_display = ['id', 'title', 'list_aliases']
 
-    def list_ids(self, obj):
+    def list_aliases(self, obj):
         if obj:
-            return '<br/>'.join([o.identifier for o in obj.identifiers.all()])
+            return '<pre>%s</pre>' % '\n'.join([o.value for o in obj.aliases.all()])
 
-    list_ids.allow_tags = True
-
-
+    list_aliases.allow_tags = True
 
 admin.site.register(Book, BookAdmin)
 
