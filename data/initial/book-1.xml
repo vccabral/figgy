@@ -4,6 +4,6 @@
     <description>A short description about the first book</description>
     <aliases>
         <alias scheme="ISBN-10" value="1000000001"/>
-        <alias scheme="ISBN-13" value="10000000000001"/>
+        <alias scheme="ISBN-13" value="1000000000001"/>
     </aliases>
 </book>
