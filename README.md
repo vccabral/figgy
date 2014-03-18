@@ -2,21 +2,14 @@
 
 figgy is sample code for interviews that relates to some of the code in our content management system.
 
+Pull requests to make the setup process or documentation smoother are more than welcome.
+
 
 # Python
  
-## Mac Setup
+## Setup
 
 ### System dependencies
-
-Assuming you're on a Mac, follow the steps below. If you're not, you're on your own.
-
-Start by making sure you have these packages from Homebrew (`brew install` them but really closely
-follow the Homebrew docs, *especially* for the databses):
-
-* (None, yet)
-
-Also do:
 
 * virtualenv (`sudo easy_install virtualenv`)
 
