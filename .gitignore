@@ -40,3 +40,4 @@ nosetests.xml
 /figgy.db.sqlite3
 
 _local_tests.py
+.ropeproject
