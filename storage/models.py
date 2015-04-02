@@ -37,8 +37,11 @@ class Alias(BaseModel):
     '''
 
     book = models.ForeignKey(Book, related_name='aliases')
-    value = models.CharField(max_length=255, db_index=True, unique=True, help_text="The value of this identifier")
+    value = models.CharField(max_length=255, db_index=True, help_text="The value of this identifier")
     scheme = models.CharField(max_length=40, help_text="The scheme of identifier")
 
     def __unicode__(self):
         return '%s identifier for %s' % (self.scheme, self.book.title)
+
+    class Meta:
+        unique_together = ('book', 'value', 'scheme')
