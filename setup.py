@@ -23,7 +23,7 @@ setup(
     license='BSD',
     include_package_data=True,
     install_requires=[
-        'Django>=1.6',
+        'Django==1.6.8',
         'lxml>=3.2.0',
         # 'html5lib',
         # 'cssselect',
